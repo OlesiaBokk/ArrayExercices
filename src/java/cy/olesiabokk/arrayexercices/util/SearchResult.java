@@ -2,6 +2,8 @@ package cy.olesiabokk.arrayexercices.util;
 
 import cy.olesiabokk.arrayexercices.service.ScannerService;
 
+import java.util.Arrays;
+
 public class SearchResult {
     public static void showEvenNumQuantity() {
         int[] array = ScannerService.getArray();
@@ -82,5 +84,20 @@ public class SearchResult {
             }
         }
         System.out.println("Quantity of zero: " + quantity);
+    }
+
+    public static void sortArray() {
+        int[] array = ScannerService.getArray();
+        int buf;
+        for (int i = 0; i < array.length; i++) {
+            for (int j = 0; j < array.length - 1; j++) {
+                if (array[j] > array[j + 1]) {
+                    buf = array[j + 1];
+                    array[j + 1] = array[j];
+                    array[j] = buf;
+                }
+            }
+        }
+        System.out.println(Arrays.toString(array));
     }
 }
