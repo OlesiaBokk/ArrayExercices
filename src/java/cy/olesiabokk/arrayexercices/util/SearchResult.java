@@ -86,18 +86,58 @@ public class SearchResult {
         System.out.println("Quantity of zero: " + quantity);
     }
 
-    public static void sortArray() {
+    public static void bubbleSortArray() {
         int[] array = ScannerService.getArray();
-        int buf;
-        for (int i = 0; i < array.length; i++) {
-            for (int j = 0; j < array.length - 1; j++) {
-                if (array[j] > array[j + 1]) {
-                    buf = array[j + 1];
-                    array[j + 1] = array[j];
-                    array[j] = buf;
+        boolean isSorted = false;
+        while (!isSorted) {
+            isSorted = true;
+            for (int i = 1; i < array.length; i++) {
+                if (array[i] < array[i - 1]) {
+                    int tmp = array[i];
+                    array[i] = array[i - 1];
+                    array[i - 1] = tmp;
+                    isSorted = false;
                 }
             }
         }
         System.out.println(Arrays.toString(array));
+    }
+
+    public static void insertSort() {
+        int[] array = ScannerService.getArray();
+        for (int i = 0; i < array.length; i++) {
+            int currElem = array[i];
+            int j = i;
+            while (j > 0 && array[j - 1] > currElem) {
+                array[j] = array[j - 1];
+                j--;
+            }
+            array[j] = currElem;
+        }
+        System.out.println(Arrays.toString(array));
+    }
+
+    public static void selectionSort() {
+        int[] array = ScannerService.getArray();
+        for (int step = 0; step < array.length; step++) {
+            int minElementIndex = findMinValue(step);
+            int temp = array[step];
+            array[step] = array[minElementIndex];
+            array[minElementIndex] = temp;
+        }
+        System.out.println(Arrays.toString(array));
+    }
+
+    private static int findMinValue(int startSearch) {
+        int[] array = ScannerService.getArray();
+        int minIndex = startSearch;
+        int minValue = array[startSearch];
+        for (int i = startSearch + 1; i < array.length; i++) {
+            if (array[i] < minValue) {
+                minValue = array[i];
+                minIndex = i;
+            }
+        }
+        return minIndex;
     }
 }

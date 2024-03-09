@@ -14,6 +14,8 @@ public class Main {
         SearchResult.showNumbersSum();
         SearchResult.showSubstraction();
         SearchResult.zeroQuantity();
-        SearchResult.sortArray();
+        SearchResult.bubbleSortArray();
+        SearchResult.insertSort();
+        SearchResult.selectionSort();
     }
 }
