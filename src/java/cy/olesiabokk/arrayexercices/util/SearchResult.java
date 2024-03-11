@@ -2,6 +2,7 @@ package cy.olesiabokk.arrayexercices.util;
 
 import cy.olesiabokk.arrayexercices.service.ScannerService;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 
 public class SearchResult {
@@ -135,6 +136,30 @@ public class SearchResult {
         for (int i = startSearch + 1; i < array.length; i++) {
             if (array[i] < minValue) {
                 minValue = array[i];
+                minIndex = i;
+            }
+        }
+        return minIndex;
+    }
+
+    public static void sortArrayList() {
+        ArrayList list = ScannerService.createList();
+        ArrayList sortedList = new ArrayList();
+        while (list.size() != 0) {
+            int minElemIndex = getMinListValue();
+            sortedList.add(list.get(minElemIndex));
+            list.remove(minElemIndex);
+        }
+        System.out.println("Sorted list: " + sortedList);
+    }
+
+    private static int getMinListValue() {
+        ArrayList list = ScannerService.getArrayList();
+        int minIndex = 0;
+        int minValue = (int) list.get(0);
+        for (int i = 0; i < list.size(); i++) {
+            if ((int) list.get(i) < minValue) {
+                minValue = (int) list.get(i);
                 minIndex = i;
             }
         }

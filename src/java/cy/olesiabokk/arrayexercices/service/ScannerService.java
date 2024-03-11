@@ -7,7 +7,7 @@ public class ScannerService {
     private static int[] array;
     private static ArrayList arrayList;
 
-    public static int scanInput(){
+    public static int scanInput() {
         Scanner sc = new Scanner(System.in);
         int a = sc.nextInt();
         return a;
@@ -24,10 +24,10 @@ public class ScannerService {
     }
 
     public static ArrayList createList() {
-        System.out.println("Enter array length");
+        System.out.println("Enter list length");
         int listSize = ScannerService.scanInput();
         arrayList = new ArrayList();
-        System.out.println("Fill in the array with numbers");
+        System.out.println("Fill in the list with numbers");
         for (int i = 0; i < listSize; i++) {
             arrayList.add(ScannerService.scanInput());
         }

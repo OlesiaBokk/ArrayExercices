@@ -6,8 +6,7 @@ import cy.olesiabokk.arrayexercices.util.SearchResult;
 public class Main {
 
     public static void main(String[] args) {
-        ScannerService reader = new ScannerService();
-        reader.inputReader();
+        ScannerService.createArray();
         SearchResult.showEvenNumQuantity();
         SearchResult.showOddNumQuantity();
         SearchResult.showPrimeNumQuantity();
@@ -17,5 +16,6 @@ public class Main {
         SearchResult.bubbleSortArray();
         SearchResult.insertSort();
         SearchResult.selectionSort();
+        SearchResult.sortArrayList();
     }
 }
