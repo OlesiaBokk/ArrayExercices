@@ -1,13 +1,11 @@
 package cy.olesiabokk.arrayexercices.util;
 
-import cy.olesiabokk.arrayexercices.service.ScannerService;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 
 public class SearchResult {
     public static void showEvenNumQuantity() {
-        int[] array = ScannerService.getArray();
+        int[] array = ArraysCreator.getArray();
         int quantity = 0;
         for (int i = 0; i < array.length; i++) {
             if (array[i] % 2 == 0) {
@@ -18,7 +16,7 @@ public class SearchResult {
     }
 
     public static void showOddNumQuantity() {
-        int[] array = ScannerService.getArray();
+        int[] array = ArraysCreator.getArray();
         int quantity = 0;
         for (int i = 0; i < array.length; i++) {
             if (array[i] % 2 != 0) {
@@ -29,7 +27,7 @@ public class SearchResult {
     }
 
     public static void showPrimeNumQuantity() {
-        int[] array = ScannerService.getArray();
+        int[] array = ArraysCreator.getArray();
         int quantity = 0;
         for (int i = 0; i < array.length; i++) {
             if (isPrime(Math.abs(array[i]))) {
@@ -54,7 +52,7 @@ public class SearchResult {
     }
 
     public static void showNumbersSum() {
-        int[] array = ScannerService.getArray();
+        int[] array = ArraysCreator.getArray();
         int sum = 0;
         for (int i = 0; i < array.length; i++) {
             sum = sum + array[i];
@@ -63,7 +61,7 @@ public class SearchResult {
     }
 
     public static void showSubstraction() {
-        int[] array = ScannerService.getArray();
+        int[] array = ArraysCreator.getArray();
         int evenSum = 0;
         int oddSum = 0;
         for (int i = 0; i < array.length; i++) {
@@ -77,7 +75,7 @@ public class SearchResult {
     }
 
     public static void zeroQuantity() {
-        int[] array = ScannerService.getArray();
+        int[] array = ArraysCreator.getArray();
         int quantity = 0;
         for (int i = 0; i < array.length; i++) {
             if (array[i] == 0) {
@@ -88,7 +86,7 @@ public class SearchResult {
     }
 
     public static void bubbleSortArray() {
-        int[] array = ScannerService.getArray();
+        int[] array = ArraysCreator.getArray();
         boolean isSorted = false;
         while (!isSorted) {
             isSorted = true;
@@ -105,7 +103,7 @@ public class SearchResult {
     }
 
     public static void insertSort() {
-        int[] array = ScannerService.getArray();
+        int[] array = ArraysCreator.getArray();
         for (int i = 0; i < array.length; i++) {
             int currElem = array[i];
             int j = i;
@@ -119,7 +117,7 @@ public class SearchResult {
     }
 
     public static void selectionSort() {
-        int[] array = ScannerService.getArray();
+        int[] array = ArraysCreator.getArray();
         for (int step = 0; step < array.length; step++) {
             int minElementIndex = findMinValue(step);
             int temp = array[step];
@@ -130,7 +128,7 @@ public class SearchResult {
     }
 
     private static int findMinValue(int startSearch) {
-        int[] array = ScannerService.getArray();
+        int[] array = ArraysCreator.getArray();
         int minIndex = startSearch;
         int minValue = array[startSearch];
         for (int i = startSearch + 1; i < array.length; i++) {
@@ -143,7 +141,7 @@ public class SearchResult {
     }
 
     public static void sortArrayList() {
-        ArrayList list = ScannerService.createList();
+        ArrayList list = ArraysCreator.createList();
         ArrayList sortedList = new ArrayList();
         while (list.size() != 0) {
             int minElemIndex = getMinListValue();
@@ -154,7 +152,7 @@ public class SearchResult {
     }
 
     private static int getMinListValue() {
-        ArrayList list = ScannerService.getArrayList();
+        ArrayList list = ArraysCreator.getArrayList();
         int minIndex = 0;
         int minValue = (int) list.get(0);
         for (int i = 0; i < list.size(); i++) {
@@ -165,4 +163,19 @@ public class SearchResult {
         }
         return minIndex;
     }
+
+    public static void sortArray() {
+        int[] array = ArraysCreator.getArray();
+        for (int i = 0; i < array.length; i++) {
+            for (int j = 1; j < array.length; j++) {
+                if (array[j] < array[j - 1]) {
+                    array[j] = array[j] + array[j - 1];
+                    array[j - 1] = array[j] - array[j - 1];
+                    array[j] = array[j] - array[j - 1];
+                }
+            }
+        }
+        System.out.println(Arrays.toString(array));
+    }
 }
+

@@ -1,12 +1,12 @@
 package cy.olesiabokk.arrayexercices.main;
 
-import cy.olesiabokk.arrayexercices.service.ScannerService;
+import cy.olesiabokk.arrayexercices.util.ArraysCreator;
 import cy.olesiabokk.arrayexercices.util.SearchResult;
 
 public class Main {
 
     public static void main(String[] args) {
-        ScannerService.createArray();
+        ArraysCreator.createArray();
         SearchResult.showEvenNumQuantity();
         SearchResult.showOddNumQuantity();
         SearchResult.showPrimeNumQuantity();
@@ -17,5 +17,6 @@ public class Main {
         SearchResult.insertSort();
         SearchResult.selectionSort();
         SearchResult.sortArrayList();
+        SearchResult.sortArray();
     }
 }
