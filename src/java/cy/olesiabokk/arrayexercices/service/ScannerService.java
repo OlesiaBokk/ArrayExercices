@@ -3,9 +3,9 @@ package cy.olesiabokk.arrayexercices.service;
 import java.util.Scanner;
 
 public class ScannerService {
+    private static Scanner sc = new Scanner(System.in);
+
     public static int scanInput() {
-        Scanner sc = new Scanner(System.in);
-        int a = sc.nextInt();
-        return a;
+        return sc.nextInt();
     }
 }
